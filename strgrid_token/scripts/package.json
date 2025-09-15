@@ -1,0 +1,47 @@
+{
+  "name": "stellargrid-demo-scripts",
+  "version": "1.0.0",
+  "description": "Scripts de demonstração para StellarGrid Token - Hackathon",
+  "main": "demo.js",
+  "scripts": {
+    "demo": "node demo.js",
+    "demo:full": "node demo.js --full",
+    "demo:quick": "node quick-demo.js",
+    "performance": "node performance-test.js",
+    "benchmark": "node benchmark.js",
+    "stress-test": "node stress-test.js",
+    "install-deps": "npm install"
+  },
+  "keywords": [
+    "stellar",
+    "soroban",
+    "blockchain",
+    "energy",
+    "renewable",
+    "demo",
+    "hackathon"
+  ],
+  "author": "StellarGrid Team",
+  "license": "MIT",
+  "dependencies": {
+    "@stellar/stellar-sdk": "^11.2.2",
+    "axios": "^1.5.0",
+    "chalk": "^4.1.2",
+    "ora": "^5.4.1",
+    "cli-table3": "^0.6.3",
+    "commander": "^11.0.0",
+    "inquirer": "^8.2.6",
+    "progress": "^2.0.3",
+    "figlet": "^1.6.0",
+    "boxen": "^5.1.2"
+  },
+  "devDependencies": {
+    "jest": "^29.6.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "bin": {
+    "stellargrid-demo": "./demo.js"
+  }
+}

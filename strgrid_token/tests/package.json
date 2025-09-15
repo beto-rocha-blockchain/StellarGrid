@@ -1,0 +1,146 @@
+{
+  "name": "stellargrid-token-tests",
+  "version": "1.0.0",
+  "description": "Testes de integração e unitários para StellarGrid Token",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:unit": "jest --selectProjects 'Unit Tests'",
+    "test:integration": "jest --selectProjects 'Integration Tests'",
+    "test:e2e": "jest --selectProjects 'E2E Tests'",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --ci --coverage --watchAll=false",
+    "test:debug": "DEBUG_TESTS=true jest --verbose",
+    "test:performance": "jest --testNamePattern='Performance|performance'",
+    "test:security": "jest --testNamePattern='Security|security'",
+    "test:api": "jest tests/integration/api.test.js",
+    "test:clean": "rimraf coverage .jest-cache",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "format": "prettier --write '**/*.{js,json,md}'",
+    "format:check": "prettier --check '**/*.{js,json,md}'",
+    "pretest": "npm run lint",
+    "posttest": "npm run format:check"
+  },
+  "keywords": [
+    "stellar",
+    "soroban",
+    "blockchain",
+    "green-energy",
+    "testing",
+    "integration",
+    "api"
+  ],
+  "author": "StellarGrid Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "babel-jest": "^29.7.0",
+    "eslint": "^8.50.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jest": "^27.4.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "jest": "^29.7.0",
+    "jest-html-reporters": "^3.1.5",
+    "jest-junit": "^16.0.0",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "supertest": "^6.3.3"
+  },
+  "dependencies": {
+    "@stellar/stellar-sdk": "^11.2.2",
+    "axios": "^1.5.0",
+    "chalk": "^4.1.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.10.2",
+    "node-fetch": "^2.7.0",
+    "ora": "^5.4.1",
+    "winston": "^3.10.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": ["<rootDir>/setup.js"],
+    "setupFiles": ["<rootDir>/env.setup.js"],
+    "testMatch": [
+      "**/tests/**/*.test.js",
+      "**/tests/**/*.spec.js"
+    ],
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": ["text", "lcov", "html"],
+    "testTimeout": 30000,
+    "verbose": true
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "18"
+          }
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "plugin:jest/recommended"
+    ],
+    "env": {
+      "node": true,
+      "jest": true,
+      "es2022": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2022,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": "warn",
+      "no-unused-vars": "error",
+      "prefer-const": "error",
+      "jest/expect-expect": "error",
+      "jest/no-disabled-tests": "warn",
+      "jest/no-focused-tests": "error",
+      "jest/prefer-to-have-length": "warn",
+      "jest/valid-expect": "error"
+    },
+    "ignorePatterns": [
+      "coverage/",
+      "node_modules/",
+      "*.min.js"
+    ]
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "printWidth": 80,
+    "bracketSpacing": true,
+    "arrowParens": "avoid"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stellargrid/strgrid-token.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stellargrid/strgrid-token/issues"
+  },
+  "homepage": "https://github.com/stellargrid/strgrid-token#readme",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/stellargrid"
+  }
+}
